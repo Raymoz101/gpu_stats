@@ -1,1 +1,1 @@
-*/1 * * * *	root	/usr/local/gpu_stats.sh > /tmp/gpu_stats.log 2>&1
+*/1 * * * * root /bin/bash /usr/local/bin/gpu_stats.sh > /tmp/gpu_stats.log 2>&1
