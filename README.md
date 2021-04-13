@@ -30,7 +30,9 @@ _Hashrate is ONLY if you use HiveOS [https://hiveos.farm]_
 ### Get started with InfluxDB
 
 Linux Install - https://docs.influxdata.com/influxdb/v2.0/get-started/?t=Linux
+
 Docker Install - https://docs.influxdata.com/influxdb/v2.0/get-started/?t=Docker
+
 
 Setup - https://www.influxdata.com/blog/getting-started-with-influxdb-2-0-scraping-metrics-running-telegraf-querying-data-and-writing-data/
 
