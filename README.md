@@ -15,7 +15,7 @@ All stats grab with **nvidia-smi**
 `nvidia-smi -L`
 
 ### Stats
-`nvidia-smi --query-gpu=power.draw,clocks.sm,clocks.mem,clocks.gr,temperature.gpu,utilization.gpu,fan.speed,pstate --format=csv,noheader`
+`nvidia-smi -i 0 --query-gpu=power.draw,clocks.sm,clocks.mem,clocks.gr,temperature.gpu,utilization.gpu,fan.speed,pstate --format=csv,noheader`
 
 #### Fan speed
 `nvidia-smi -i 0 --query-gpu=fan.speed --format=csv,noheader`
