@@ -24,8 +24,10 @@ _Hash RATE is ONLY if you use HiveOS [https://hiveos.farm]_
 
 ### Make sure to replace variables in *gpu_stats.sh* with your own from InfluxDB 2.0
 Create or Copy `gpu_stats.sh` from repo into `/usr/local/bin/`
+
 Run `chmod +x /usr/local/bin/gpu_stats.sh`
-Push `gpu_stats.cron` in your crontab with `sudo cp gpu_stats.cron /etc/cron.d/gpu_stats` for execution every minute
+
+Push `gpu_stats.cron` into your crontab with `sudo cp gpu_stats.cron /etc/cron.d/gpu_stats` for execution every minute
 
 ---
 souces:
