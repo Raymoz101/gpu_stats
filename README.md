@@ -22,6 +22,13 @@ All stats grab with **nvidia-smi**
 
 _Hashrate is ONLY if you use HiveOS [https://hiveos.farm]_
 
+### Get started with InfluxDB
+
+Linux Install - https://docs.influxdata.com/influxdb/v2.0/get-started/?t=Linux
+Docker Install - https://docs.influxdata.com/influxdb/v2.0/get-started/?t=Docker
+
+Setup - https://www.influxdata.com/blog/getting-started-with-influxdb-2-0-scraping-metrics-running-telegraf-querying-data-and-writing-data/
+
 ### Make sure to replace variables in *gpu_stats.sh* with your own from InfluxDB 2.0
 Create or Copy `gpu_stats.sh` from repo into `/usr/local/bin/`
 
