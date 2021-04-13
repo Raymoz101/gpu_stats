@@ -1,0 +1,883 @@
+{
+ "meta": {
+  "version": "1",
+  "type": "dashboard",
+  "name": "Farm Overview-Template",
+  "description": "template created from dashboard: Farm Overview"
+ },
+ "content": {
+  "data": {
+   "type": "dashboard",
+   "attributes": {
+    "name": "Farm Overview",
+    "description": ""
+   },
+   "relationships": {
+    "label": {
+     "data": []
+    },
+    "cell": {
+     "data": [
+      {
+       "type": "cell",
+       "id": "075427524d2fa000"
+      },
+      {
+       "type": "cell",
+       "id": "0754275b3a6fa000"
+      },
+      {
+       "type": "cell",
+       "id": "0754276f446fa000"
+      },
+      {
+       "type": "cell",
+       "id": "075427c8362fa000"
+      },
+      {
+       "type": "cell",
+       "id": "07545ca19e6fa000"
+      },
+      {
+       "type": "cell",
+       "id": "07545d70b4afa000"
+      },
+      {
+       "type": "cell",
+       "id": "075e8640d1cc8000"
+      }
+     ]
+    },
+    "variable": {
+     "data": []
+    }
+   }
+  },
+  "included": [
+   {
+    "id": "075427524d2fa000",
+    "type": "cell",
+    "attributes": {
+     "x": 0,
+     "y": 7,
+     "w": 4,
+     "h": 4
+    },
+    "relationships": {
+     "view": {
+      "data": {
+       "type": "view",
+       "id": "075427524d2fa000"
+      }
+     }
+    }
+   },
+   {
+    "id": "0754275b3a6fa000",
+    "type": "cell",
+    "attributes": {
+     "x": 4,
+     "y": 7,
+     "w": 4,
+     "h": 4
+    },
+    "relationships": {
+     "view": {
+      "data": {
+       "type": "view",
+       "id": "0754275b3a6fa000"
+      }
+     }
+    }
+   },
+   {
+    "id": "0754276f446fa000",
+    "type": "cell",
+    "attributes": {
+     "x": 8,
+     "y": 7,
+     "w": 4,
+     "h": 4
+    },
+    "relationships": {
+     "view": {
+      "data": {
+       "type": "view",
+       "id": "0754276f446fa000"
+      }
+     }
+    }
+   },
+   {
+    "id": "075427c8362fa000",
+    "type": "cell",
+    "attributes": {
+     "x": 4,
+     "y": 3,
+     "w": 4,
+     "h": 4
+    },
+    "relationships": {
+     "view": {
+      "data": {
+       "type": "view",
+       "id": "075427c8362fa000"
+      }
+     }
+    }
+   },
+   {
+    "id": "07545ca19e6fa000",
+    "type": "cell",
+    "attributes": {
+     "x": 8,
+     "y": 3,
+     "w": 4,
+     "h": 4
+    },
+    "relationships": {
+     "view": {
+      "data": {
+       "type": "view",
+       "id": "07545ca19e6fa000"
+      }
+     }
+    }
+   },
+   {
+    "id": "07545d70b4afa000",
+    "type": "cell",
+    "attributes": {
+     "x": 0,
+     "y": 3,
+     "w": 4,
+     "h": 4
+    },
+    "relationships": {
+     "view": {
+      "data": {
+       "type": "view",
+       "id": "07545d70b4afa000"
+      }
+     }
+    }
+   },
+   {
+    "id": "075e8640d1cc8000",
+    "type": "cell",
+    "attributes": {
+     "x": 0,
+     "y": 0,
+     "w": 12,
+     "h": 3
+    },
+    "relationships": {
+     "view": {
+      "data": {
+       "type": "view",
+       "id": "075e8640d1cc8000"
+      }
+     }
+    }
+   },
+   {
+    "type": "view",
+    "id": "075427524d2fa000",
+    "attributes": {
+     "name": "RIG1 Daily Revenue",
+     "properties": {
+      "shape": "chronograf-v2",
+      "queries": [
+       {
+        "text": "from(bucket: \"HiveOS\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"RIG1\")\n  |> filter(fn: (r) => r[\"_field\"] == \"CurrentDailyProfitability\")\n  |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: false)\n  |> yield(name: \"last\")",
+        "editMode": "advanced",
+        "name": "",
+        "builderConfig": {
+         "buckets": [],
+         "tags": [
+          {
+           "key": "_measurement",
+           "values": [],
+           "aggregateFunctionType": "filter"
+          }
+         ],
+         "functions": [
+          {
+           "name": "mean"
+          }
+         ],
+         "aggregateWindow": {
+          "period": "auto",
+          "fillValues": false
+         }
+        }
+       }
+      ],
+      "axes": {
+       "x": {
+        "bounds": [
+         "",
+         ""
+        ],
+        "label": "",
+        "prefix": "",
+        "suffix": "",
+        "base": "10",
+        "scale": "linear"
+       },
+       "y": {
+        "bounds": [
+         "",
+         ""
+        ],
+        "label": "",
+        "prefix": "$",
+        "suffix": "",
+        "base": "10",
+        "scale": "linear"
+       }
+      },
+      "type": "line-plus-single-stat",
+      "legend": {},
+      "colors": [
+       {
+        "id": "5a4fd45d-9488-4223-9d9f-736cc1542efe",
+        "type": "scale",
+        "hex": "#74D495",
+        "name": "Atlantis",
+        "value": 0
+       },
+       {
+        "id": "f4c881a8-04b3-4703-af0b-629edd0e5a0c",
+        "type": "scale",
+        "hex": "#3F3FBA",
+        "name": "Atlantis",
+        "value": 0
+       },
+       {
+        "id": "6e3cb275-f36e-42d0-84af-eed78554d22a",
+        "type": "scale",
+        "hex": "#FF4D9E",
+        "name": "Atlantis",
+        "value": 0
+       },
+       {
+        "id": "base",
+        "type": "text",
+        "hex": "#7CE490",
+        "name": "honeydew",
+        "value": 0
+       }
+      ],
+      "prefix": "",
+      "suffix": "",
+      "decimalPlaces": {
+       "isEnforced": true,
+       "digits": 2
+      },
+      "note": "",
+      "showNoteWhenEmpty": false,
+      "xColumn": "_time",
+      "generateXAxisTicks": null,
+      "xTotalTicks": 0,
+      "xTickStart": 0,
+      "xTickStep": 0,
+      "yColumn": "_value",
+      "generateYAxisTicks": null,
+      "yTotalTicks": 0,
+      "yTickStart": 0,
+      "yTickStep": 0,
+      "shadeBelow": false,
+      "position": "overlaid",
+      "timeFormat": "HH:mm",
+      "hoverDimension": "",
+      "legendColorizeRows": false,
+      "legendOpacity": 0,
+      "legendOrientationThreshold": 0
+     }
+    }
+   },
+   {
+    "type": "view",
+    "id": "0754275b3a6fa000",
+    "attributes": {
+     "name": "RIG2 Daily Revenue",
+     "properties": {
+      "shape": "chronograf-v2",
+      "queries": [
+       {
+        "text": "from(bucket: \"HiveOS\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"RIG2\")\n  |> filter(fn: (r) => r[\"_field\"] == \"CurrentDailyProfitability\")\n  |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: false)\n  |> yield(name: \"last\")",
+        "editMode": "advanced",
+        "name": "",
+        "builderConfig": {
+         "buckets": [],
+         "tags": [
+          {
+           "key": "_measurement",
+           "values": [],
+           "aggregateFunctionType": "filter"
+          }
+         ],
+         "functions": [
+          {
+           "name": "mean"
+          }
+         ],
+         "aggregateWindow": {
+          "period": "auto",
+          "fillValues": false
+         }
+        }
+       }
+      ],
+      "axes": {
+       "x": {
+        "bounds": [
+         "",
+         ""
+        ],
+        "label": "",
+        "prefix": "",
+        "suffix": "",
+        "base": "10",
+        "scale": "linear"
+       },
+       "y": {
+        "bounds": [
+         "",
+         ""
+        ],
+        "label": "",
+        "prefix": "$",
+        "suffix": "",
+        "base": "10",
+        "scale": "linear"
+       }
+      },
+      "type": "line-plus-single-stat",
+      "legend": {},
+      "colors": [
+       {
+        "id": "5a4fd45d-9488-4223-9d9f-736cc1542efe",
+        "type": "scale",
+        "hex": "#74D495",
+        "name": "Atlantis",
+        "value": 0
+       },
+       {
+        "id": "f4c881a8-04b3-4703-af0b-629edd0e5a0c",
+        "type": "scale",
+        "hex": "#3F3FBA",
+        "name": "Atlantis",
+        "value": 0
+       },
+       {
+        "id": "6e3cb275-f36e-42d0-84af-eed78554d22a",
+        "type": "scale",
+        "hex": "#FF4D9E",
+        "name": "Atlantis",
+        "value": 0
+       },
+       {
+        "id": "base",
+        "type": "text",
+        "hex": "#7CE490",
+        "name": "honeydew",
+        "value": 0
+       }
+      ],
+      "prefix": "",
+      "suffix": "",
+      "decimalPlaces": {
+       "isEnforced": true,
+       "digits": 2
+      },
+      "note": "",
+      "showNoteWhenEmpty": false,
+      "xColumn": "_time",
+      "generateXAxisTicks": null,
+      "xTotalTicks": 0,
+      "xTickStart": 0,
+      "xTickStep": 0,
+      "yColumn": "_value",
+      "generateYAxisTicks": null,
+      "yTotalTicks": 0,
+      "yTickStart": 0,
+      "yTickStep": 0,
+      "shadeBelow": false,
+      "position": "overlaid",
+      "timeFormat": "HH:mm",
+      "hoverDimension": "",
+      "legendColorizeRows": false,
+      "legendOpacity": 0,
+      "legendOrientationThreshold": 0
+     }
+    }
+   },
+   {
+    "type": "view",
+    "id": "0754276f446fa000",
+    "attributes": {
+     "name": "RIG3 Daily Revenue",
+     "properties": {
+      "shape": "chronograf-v2",
+      "queries": [
+       {
+        "text": "from(bucket: \"HiveOS\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"RIG3\")\n  |> filter(fn: (r) => r[\"_field\"] == \"CurrentDailyProfitability\")\n  |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: false)\n  |> yield(name: \"last\")",
+        "editMode": "advanced",
+        "name": "",
+        "builderConfig": {
+         "buckets": [],
+         "tags": [
+          {
+           "key": "_measurement",
+           "values": [],
+           "aggregateFunctionType": "filter"
+          }
+         ],
+         "functions": [
+          {
+           "name": "mean"
+          }
+         ],
+         "aggregateWindow": {
+          "period": "auto",
+          "fillValues": false
+         }
+        }
+       }
+      ],
+      "axes": {
+       "x": {
+        "bounds": [
+         "",
+         ""
+        ],
+        "label": "",
+        "prefix": "",
+        "suffix": "",
+        "base": "10",
+        "scale": "linear"
+       },
+       "y": {
+        "bounds": [
+         "",
+         ""
+        ],
+        "label": "",
+        "prefix": "$",
+        "suffix": "",
+        "base": "10",
+        "scale": "linear"
+       }
+      },
+      "type": "line-plus-single-stat",
+      "legend": {},
+      "colors": [
+       {
+        "id": "5a4fd45d-9488-4223-9d9f-736cc1542efe",
+        "type": "scale",
+        "hex": "#74D495",
+        "name": "Atlantis",
+        "value": 0
+       },
+       {
+        "id": "f4c881a8-04b3-4703-af0b-629edd0e5a0c",
+        "type": "scale",
+        "hex": "#3F3FBA",
+        "name": "Atlantis",
+        "value": 0
+       },
+       {
+        "id": "6e3cb275-f36e-42d0-84af-eed78554d22a",
+        "type": "scale",
+        "hex": "#FF4D9E",
+        "name": "Atlantis",
+        "value": 0
+       },
+       {
+        "id": "base",
+        "type": "text",
+        "hex": "#7CE490",
+        "name": "honeydew",
+        "value": 0
+       }
+      ],
+      "prefix": "",
+      "suffix": "",
+      "decimalPlaces": {
+       "isEnforced": true,
+       "digits": 2
+      },
+      "note": "",
+      "showNoteWhenEmpty": false,
+      "xColumn": "_time",
+      "generateXAxisTicks": null,
+      "xTotalTicks": 0,
+      "xTickStart": 0,
+      "xTickStep": 0,
+      "yColumn": "_value",
+      "generateYAxisTicks": null,
+      "yTotalTicks": 0,
+      "yTickStart": 0,
+      "yTickStep": 0,
+      "shadeBelow": false,
+      "position": "overlaid",
+      "timeFormat": "HH:mm",
+      "hoverDimension": "",
+      "legendColorizeRows": false,
+      "legendOpacity": 0,
+      "legendOrientationThreshold": 0
+     }
+    }
+   },
+   {
+    "type": "view",
+    "id": "075427c8362fa000",
+    "attributes": {
+     "name": "Farm Daily Revenue",
+     "properties": {
+      "shape": "chronograf-v2",
+      "type": "single-stat",
+      "queries": [
+       {
+        "text": "from(bucket: \"HiveOS\")\n  |> range(start: -1m, stop: now())\n  |> filter(fn: (r) => r[\"_measurement\"] == \"RIG1\" or r[\"_measurement\"] == \"RIG2\" or r[\"_measurement\"] == \"RIG3\")\n  |> filter(fn: (r) => r[\"_field\"] == \"CurrentDailyProfitability\")\n  //|> toInt()\n  |> map(fn: (r) => ({ r with _value: r._value + r._value + r._value}))\n  //|> sum(column: \"_value\")",
+        "editMode": "advanced",
+        "name": "",
+        "builderConfig": {
+         "buckets": [],
+         "tags": [
+          {
+           "key": "_measurement",
+           "values": [],
+           "aggregateFunctionType": "filter"
+          }
+         ],
+         "functions": [
+          {
+           "name": "mean"
+          }
+         ],
+         "aggregateWindow": {
+          "period": "auto",
+          "fillValues": false
+         }
+        }
+       }
+      ],
+      "prefix": "$",
+      "tickPrefix": "",
+      "suffix": "",
+      "tickSuffix": "",
+      "colors": [
+       {
+        "id": "base",
+        "type": "background",
+        "hex": "#32B08C",
+        "name": "viridian",
+        "value": 0
+       }
+      ],
+      "decimalPlaces": {
+       "isEnforced": true,
+       "digits": 2
+      },
+      "note": "",
+      "showNoteWhenEmpty": false
+     }
+    }
+   },
+   {
+    "type": "view",
+    "id": "07545ca19e6fa000",
+    "attributes": {
+     "name": "Daily Revenue - Cents per Mh",
+     "properties": {
+      "shape": "chronograf-v2",
+      "queries": [
+       {
+        "text": "from(bucket: \"HiveOS\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"RIG1\")\n  |> filter(fn: (r) => r[\"_field\"] == \"CentsPerMH\")\n  |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: false)\n  |> yield(name: \"last\")",
+        "editMode": "advanced",
+        "name": "",
+        "builderConfig": {
+         "buckets": [],
+         "tags": [
+          {
+           "key": "_measurement",
+           "values": [],
+           "aggregateFunctionType": "filter"
+          }
+         ],
+         "functions": [
+          {
+           "name": "mean"
+          }
+         ],
+         "aggregateWindow": {
+          "period": "auto",
+          "fillValues": false
+         }
+        }
+       }
+      ],
+      "axes": {
+       "x": {
+        "bounds": [
+         "",
+         ""
+        ],
+        "label": "",
+        "prefix": "",
+        "suffix": "",
+        "base": "10",
+        "scale": "linear"
+       },
+       "y": {
+        "bounds": [
+         "",
+         ""
+        ],
+        "label": "",
+        "prefix": "",
+        "suffix": "c",
+        "base": "2",
+        "scale": "linear"
+       }
+      },
+      "type": "line-plus-single-stat",
+      "legend": {},
+      "colors": [
+       {
+        "id": "2b33a684-6a38-49a4-931c-e051a953e5e4",
+        "type": "scale",
+        "hex": "#74D495",
+        "name": "Atlantis",
+        "value": 0
+       },
+       {
+        "id": "6899563c-d437-4ca0-acf4-47e309382900",
+        "type": "scale",
+        "hex": "#3F3FBA",
+        "name": "Atlantis",
+        "value": 0
+       },
+       {
+        "id": "d26ae9f1-e1a3-40d7-9af5-f1e0f8200ac2",
+        "type": "scale",
+        "hex": "#FF4D9E",
+        "name": "Atlantis",
+        "value": 0
+       },
+       {
+        "id": "base",
+        "type": "text",
+        "hex": "#7CE490",
+        "name": "honeydew",
+        "value": 0
+       }
+      ],
+      "prefix": "",
+      "suffix": "",
+      "decimalPlaces": {
+       "isEnforced": true,
+       "digits": 3
+      },
+      "note": "",
+      "showNoteWhenEmpty": false,
+      "xColumn": "_time",
+      "generateXAxisTicks": null,
+      "xTotalTicks": 0,
+      "xTickStart": 0,
+      "xTickStep": 0,
+      "yColumn": "_value",
+      "generateYAxisTicks": null,
+      "yTotalTicks": 0,
+      "yTickStart": 0,
+      "yTickStep": 0,
+      "shadeBelow": false,
+      "position": "overlaid",
+      "timeFormat": "HH:mm",
+      "hoverDimension": "",
+      "legendColorizeRows": false,
+      "legendOpacity": 0,
+      "legendOrientationThreshold": 0
+     }
+    }
+   },
+   {
+    "type": "view",
+    "id": "07545d70b4afa000",
+    "attributes": {
+     "name": "Live Total Hashrate",
+     "properties": {
+      "shape": "chronograf-v2",
+      "type": "single-stat",
+      "queries": [
+       {
+        "text": "from(bucket: \"HiveOS\")\n  |> range(start: -1m, stop: now())\n  |> filter(fn: (r) => r[\"_measurement\"] == \"RIG1\" or r[\"_measurement\"] == \"RIG2\" or r[\"_measurement\"] == \"RIG3\")\n  |> filter(fn: (r) => r[\"_field\"] == \"hashrate\")\n  //|> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: false)\n  //|> yield(name: \"last\")\n  |> toFloat()\n  |> map(fn: (r) => ({ r with _value: r._value + r._value + r._value }))",
+        "editMode": "advanced",
+        "name": "",
+        "builderConfig": {
+         "buckets": [],
+         "tags": [
+          {
+           "key": "_measurement",
+           "values": [],
+           "aggregateFunctionType": "filter"
+          }
+         ],
+         "functions": [
+          {
+           "name": "mean"
+          }
+         ],
+         "aggregateWindow": {
+          "period": "auto",
+          "fillValues": false
+         }
+        }
+       }
+      ],
+      "prefix": "",
+      "tickPrefix": "",
+      "suffix": "Mh/s",
+      "tickSuffix": "",
+      "colors": [
+       {
+        "id": "base",
+        "type": "background",
+        "hex": "#513CC6",
+        "name": "planet",
+        "value": 0
+       }
+      ],
+      "decimalPlaces": {
+       "isEnforced": true,
+       "digits": 0
+      },
+      "note": "",
+      "showNoteWhenEmpty": false
+     }
+    }
+   },
+   {
+    "type": "view",
+    "id": "075e8640d1cc8000",
+    "attributes": {
+     "name": "Ethereum Price",
+     "properties": {
+      "shape": "chronograf-v2",
+      "queries": [
+       {
+        "text": "from(bucket: \"HiveOS\")\n  |> range(start: v.timeRangeStart, stop: v.timeRangeStop)\n  |> filter(fn: (r) => r[\"_measurement\"] == \"RIG1\")\n  |> filter(fn: (r) => r[\"_field\"] == \"ETHLivePrice\")\n  |> aggregateWindow(every: v.windowPeriod, fn: last, createEmpty: false)\n  |> yield(name: \"last\")",
+        "editMode": "advanced",
+        "name": "",
+        "builderConfig": {
+         "buckets": [],
+         "tags": [
+          {
+           "key": "_measurement",
+           "values": [],
+           "aggregateFunctionType": "filter"
+          }
+         ],
+         "functions": [
+          {
+           "name": "mean"
+          }
+         ],
+         "aggregateWindow": {
+          "period": "auto",
+          "fillValues": false
+         }
+        }
+       }
+      ],
+      "axes": {
+       "x": {
+        "bounds": [
+         "",
+         ""
+        ],
+        "label": "",
+        "prefix": "",
+        "suffix": "",
+        "base": "10",
+        "scale": "linear"
+       },
+       "y": {
+        "bounds": [
+         "",
+         ""
+        ],
+        "label": "",
+        "prefix": "",
+        "suffix": "",
+        "base": "",
+        "scale": "linear"
+       }
+      },
+      "type": "line-plus-single-stat",
+      "legend": {},
+      "colors": [
+       {
+        "id": "fb7c1294-86f5-4577-9b5e-b9ae8c48421b",
+        "type": "scale",
+        "hex": "#74D495",
+        "name": "Atlantis",
+        "value": 0
+       },
+       {
+        "id": "2ecad6cb-8fed-493a-a16d-c9afd6c65ffe",
+        "type": "scale",
+        "hex": "#3F3FBA",
+        "name": "Atlantis",
+        "value": 0
+       },
+       {
+        "id": "3e36b565-cbdf-4da0-b3ab-ba0a0428b9c0",
+        "type": "scale",
+        "hex": "#FF4D9E",
+        "name": "Atlantis",
+        "value": 0
+       },
+       {
+        "id": "base",
+        "type": "text",
+        "hex": "#7CE490",
+        "name": "honeydew",
+        "value": 0
+       }
+      ],
+      "prefix": "",
+      "suffix": "",
+      "decimalPlaces": {
+       "isEnforced": true,
+       "digits": 2
+      },
+      "note": "",
+      "showNoteWhenEmpty": false,
+      "xColumn": "_time",
+      "generateXAxisTicks": null,
+      "xTotalTicks": 0,
+      "xTickStart": 0,
+      "xTickStep": 0,
+      "yColumn": "_value",
+      "generateYAxisTicks": null,
+      "yTotalTicks": 0,
+      "yTickStart": 0,
+      "yTickStep": 0,
+      "shadeBelow": false,
+      "position": "overlaid",
+      "timeFormat": "dddd, MMMM D, YYYY HH:mm:ss",
+      "hoverDimension": "",
+      "legendColorizeRows": false,
+      "legendOpacity": 0,
+      "legendOrientationThreshold": 0
+     }
+    }
+   }
+  ]
+ },
+ "labels": []
+}
