@@ -38,7 +38,7 @@ Docker Install - https://docs.influxdata.com/influxdb/v2.0/get-started/?t=Docker
 
 Setup - https://www.influxdata.com/blog/getting-started-with-influxdb-2-0-scraping-metrics-running-telegraf-querying-data-and-writing-data/
 
-### One template of a worker dashboard and Farm Overview included, with different worker names the cells will break, do a find replace and this will work.
+### One template of a worker dashboard and Farm Overview included, with different worker names and bucker/org names the cells will break, edit the .json files in Notepad do a find replace and this will work.
 
 ### Make sure to replace variables in *gpu_stats.sh* with your own from InfluxDB 2.0
 Create or Copy `gpu_stats.sh` from repo into `/usr/local/bin/`
