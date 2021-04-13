@@ -1,7 +1,13 @@
 # GPU STATS
 GPU Usage statistics (on Linux) for Nvidia Video Cards
-## Push your stats from GPU(mining rig) to Influxdb with Grafana
-![](https://i.imgur.com/jfX1980.png)
+## Collect your workers mining stats and scrape live Ethereum price and profitability, then send this to InfluxDB 2.0 to graph and monitor
+![Overview](https://i.imgur.com/pIr7JM1.png)
+
+![RIG1](https://i.imgur.com/4jkWoPk.png)
+
+![RIG2](https://i.imgur.com/RJk64wv.png)
+
+![RIG3](https://i.imgur.com/mmhwURX.png)
 
 All stats grab with **nvidia-smi**
 
@@ -9,23 +15,17 @@ All stats grab with **nvidia-smi**
 `nvidia-smi -L`
 
 ### Stats
-`nvidia-smi --query- gpu=power.draw,clocks.sm,clocks.mem,clocks.gr,temperature.gpu,utilization.gpu --format=csv,noheader`
+`nvidia-smi --query-gpu=power.draw,clocks.sm,clocks.mem,clocks.gr,temperature.gpu,utilization.gpu,fan.speed,pstate --format=csv,noheader`
 
-#### for online test
-`-l 1` (sec)
-
-
-#### fun speed
+#### Fan speed
 `nvidia-smi -i 0 --query-gpu=fan.speed --format=csv,noheader`
 
-_Hash RATE is ONLY if you use HIVEOS [ https://hiveos.farm ]_
+_Hash RATE is ONLY if you use HiveOS [https://hiveos.farm]_
 
-Push `gpu_stats.cron` in your crontab with `sudo cp gpu_stats.cron /etc/cron.d/gpu_stats` for execute every minute
-
-Edit `gpu_stats.sh` with `vim cp gpu_stats.sh`
-and copy it to your `/usr/local/bin/`
-`sudo cp gpu_stats.sh /usr/local/bin/ && chmod +x /usr/local/bin/gpu_stats.sh `
-
+### Make sure to replace variables in *gpu_stats.sh* with your own from InfluxDB 2.0
+Create or Copy `gpu_stats.sh` from repo into `/usr/local/bin/`
+Run `chmod +x /usr/local/bin/gpu_stats.sh`
+Push `gpu_stats.cron` in your crontab with `sudo cp gpu_stats.cron /etc/cron.d/gpu_stats` for execution every minute
 
 ---
 souces:
