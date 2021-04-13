@@ -20,7 +20,7 @@ All stats grab with **nvidia-smi**
 #### Fan speed
 `nvidia-smi -i 0 --query-gpu=fan.speed --format=csv,noheader`
 
-_Hash RATE is ONLY if you use HiveOS [https://hiveos.farm]_
+_Hashrate is ONLY if you use HiveOS [https://hiveos.farm]_
 
 ### Make sure to replace variables in *gpu_stats.sh* with your own from InfluxDB 2.0
 Create or Copy `gpu_stats.sh` from repo into `/usr/local/bin/`
