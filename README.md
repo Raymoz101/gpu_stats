@@ -1,5 +1,7 @@
 # GPU STATS
 GPU Usage statistics (on Linux) for Nvidia Video Cards
+
+Forked from: https://github.com/ts-sz/gpu_stats (Last updated 2018)
 ## Collect your workers mining stats and scrape live Ethereum price and profitability, then send this to InfluxDB 2.0 to graph and monitor
 ![Overview](https://i.imgur.com/pIr7JM1.png)
 
