@@ -3,6 +3,11 @@ GPU Usage statistics (on Linux) for Nvidia Video Cards
 
 Forked from: https://github.com/ts-sz/gpu_stats (Last updated 2018)
 
+18th April 2021 - Added support for InfluxData Cloud, just signup for a free account and can monitor miners with 30 days of retention.
+https://www.influxdata.com/influxdb-cloud-pricing/
+
+Just comment out the local IP curl lines if not required.
+
 
 Collect your workers mining stats, scrape live Ethereum price and profitability, then send this to InfluxDB 2.0 to graph and monitor.
 
